@@ -17,7 +17,7 @@ class TMDBDataLoader:
         # Merge
         df = self.movies_df.merge(self.credits_df, left_on='id', right_on='movie_id')
 
-        # Garder uniquement title_x (de movies) et ignorer title_y
+        # Keep only title_x (de movies) and ignore title_y
         df = df.rename(columns={"title_x": "title"})
         if "title_y" in df.columns:
             df = df.drop(columns=["title_y"])
